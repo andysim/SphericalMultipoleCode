@@ -1,4 +1,4 @@
-Tinker format)# Spherical Multipole Code
+# Spherical Multipole Code
 
 This repository provides a set of Fortran routines that aid in the implementation of the algorithms detailed in [our recent JCP article](http://scitation.aip.org/content/aip/journal/jcp/140/18/10.1063/1.4873920).  The analytic form of all equations can be found in the [supplementary material](ftp://ftp.aip.org/epaps/journ_chem_phys/E-JCPSA6-140-005418) for that paper.  To aid in the debugging of these routines' implementation, we provide detailed output showing the intermediates involved for a hexadecapole-bearing water dimer, with the following parameters.
 
