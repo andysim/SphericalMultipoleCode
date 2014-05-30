@@ -14,16 +14,21 @@ This repository provides a set of Fortran routines that aid in the implementatio
 ##Multipoles on each center
 
 The ordering and normalization follows the Tinker convention, which uses atomic units.  The explicit order is
-Dipoles       x    y    z
-Quadrupoles   xx   xy   yy   xz   yz   zz
-Octopoles     xxx  xxy  xyy  yyy  xxz  xyz  yyz  xzz  yzz  zzz
-Hexadecapoles xxxx xxxy xxyy xyyy yyyy xxxz xxyz xyyz yyyz xxzz xyzz yyzz xzzz yzzz zzzz
+
+              |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |  10  |  11  |  12  |  13  |  14  |  15 
+--------------|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|----:
+Dipoles       |    x |    y |    z |      |      |      |      |      |      |      |      |      |      |      |     
+Quadrupoles   |   xx |   xy |   yy |   xz |   yz |   zz |      |      |      |      |      |      |      |      |     
+Octopoles     |  xxx |  xxy |  xyy |  yyy |  xxz |  xyz |  yyz |  xzz |  yzz |  zzz |      |      |      |      |     
+Hexadecapoles | xxxx | xxxy | xxyy | xyyy | yyyy | xxxz | xxyz | xyyz | yyyz | xxzz | xyzz | yyzz | xzzz | yzzz | zzzz
 
 Our toy system places no multipoles on the hydrogens, but uses the following hexadecapoles on oxygen, oriented using the bisector of the hydrogen atoms.
 
-Dipoles          0.0000  0.0000  0.7283
-Quadrupoles      0.2432  0.0000 -0.1350  0.0000  0.0000  -0.1082
-Octopoles        0.0000  0.0000  0.0000  0.0000  3.2459   0.0000  -1.3462  0.0000  0.0000  -1.8997
-Hexadecapoles   -3.4510  0.0000 -0.7318  0.0000  1.4036   0.0000   0.0000  0.0000  0.0000   4.1829  0.0000  -0.6718  0.0000  0.0000  -3.5111
+              |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |  10  |  11  |  12  |  13  |  14  |  15 
+--------------|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|----:
+Dipoles       |  0.0000 | 0.0000 |  0.7283
+Quadrupoles   |  0.2432 | 0.0000 | -0.1350 | 0.0000 | 0.0000 | -0.1082
+Octopoles     |  0.0000 | 0.0000 |  0.0000 | 0.0000 | 3.2459 |  0.0000 | -1.3462 | 0.0000 | 0.0000 | -1.8997
+Hexadecapoles | -3.4510 | 0.0000 | -0.7318 | 0.0000 | 1.4036 |  0.0000 |  0.0000 | 0.0000 | 0.0000 |  4.1829 | 0.0000 | -0.6718 | 0.0000 | 0.0000 | -3.5111
 
 
