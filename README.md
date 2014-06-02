@@ -36,7 +36,7 @@ Hexadecapoles | -3.4510 | 0.0000 | -0.7318 | 0.0000 | 1.4036 |  0.0000 |  0.0000
 Miscellaneous Parameters
 ========================
 
-- The attenuation parameter, kappa, is 0.5 A^{-1}
+- The attenuation parameter is 0.5 A^{-1}.  Internally we call it kappa, but it's refered to as beta in the paper.
 - The _l_th order multipole can be converted to AKMA units by multiplying by (0.529177249)^l
 - The prefactor 1/(4 PI Epsilon_0) is 332.0716.
 
