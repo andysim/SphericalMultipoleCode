@@ -33,7 +33,9 @@ Quadrupoles   |  0.2432 | 0.0000 | -0.1350 | 0.0000 | 0.0000 | -0.1082
 Octopoles     |  0.0000 | 0.0000 |  0.0000 | 0.0000 | 3.2459 |  0.0000 | -1.3462 | 0.0000 | 0.0000 | -1.8997
 Hexadecapoles | -3.4510 | 0.0000 | -0.7318 | 0.0000 | 1.4036 |  0.0000 |  0.0000 | 0.0000 | 0.0000 |  4.1829 | 0.0000 | -0.6718 | 0.0000 | 0.0000 | -3.5111
 
-The attenuation parameter, kappa, is 0.37 A^{-1}
+The attenuation parameter, kappa, is 0.5 A^{-1}
+The _l_th order multipole can be converted to AKMA units by multiplying by (0.529177249)^l
+The prefactor 1/(4 PI Epsilon_0) is 332.0716.
 
 
 ## Procedure
