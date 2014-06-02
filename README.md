@@ -33,7 +33,12 @@ Quadrupoles   |  0.2432 | 0.0000 | -0.1350 | 0.0000 | 0.0000 | -0.1082
 Octopoles     |  0.0000 | 0.0000 |  0.0000 | 0.0000 | 3.2459 |  0.0000 | -1.3462 | 0.0000 | 0.0000 | -1.8997
 Hexadecapoles | -3.4510 | 0.0000 | -0.7318 | 0.0000 | 1.4036 |  0.0000 |  0.0000 | 0.0000 | 0.0000 |  4.1829 | 0.0000 | -0.6718 | 0.0000 | 0.0000 | -3.5111
 
-The attenuation parameter, kappa, is 0.37 A^{-1}
+Miscellaneous Parameters
+========================
+
+- The attenuation parameter is 0.5 A^{-1}.  Internally we call it kappa, but it's refered to as beta in the paper.
+- The _l_th order multipole can be converted to AKMA units by multiplying by (0.529177249)^l
+- The prefactor 1/(4 PI Epsilon_0) is 332.0716.
 
 
 ## Procedure
@@ -51,3 +56,22 @@ The attenuation parameter, kappa, is 0.37 A^{-1}
  - Build the F vector from those intermediates, and rotate back to the lab frame, using the _Uab_ matrix.
  - Accumulate the torque on centers _a_ and _b_.
  - After the pair loop, map the torque on each atom back to forces on that atom and its anchors.
+ 
+
+### Multipole Ordering
+
+We order multipoles and related quantities in the order 0, 1c, 1s, 2c, 2s, ...
+
+For dipoles, this translates to z, x, y.  Therefore we need to reorder some of the rotation matrices: the following snippet will achieve this:
+
+    d1(5) = Uz(1)
+    d1(8) = Uz(2)
+    d1(2) = Uz(3)
+    d1(6) = Uz(4)
+    d1(9) = Uz(5)
+    d1(3) = Uz(6)
+    d1(4) = Uz(7)
+    d1(7) = Uz(8)
+    d1(1) = Uz(9)
+
+where d1 is a rotation matrix for spherical harmonic quantities (0, 1c, 1s) and Uz is for standard Cartesian quantities (x, y, z).
