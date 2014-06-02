@@ -2,10 +2,10 @@
     integer, intent(in) :: natom ! the number of real (non-image) atoms
     !
     integer :: atom_a, lmax
-    real(chm_real), dimension(9) :: d1
-    real(chm_real), dimension(25) :: d2
-    real(chm_real), dimension(49) :: d3
-    real(chm_real), dimension(81) :: d4
+    real*8, dimension(9) :: d1
+    real*8, dimension(25) :: d2
+    real*8, dimension(49) :: d3
+    real*8, dimension(81) :: d4
 
     ! In our code, mp_lab_Q and mp_body_Q are (25*natom) matrices that cache the lab- and body-fixed multipoles, respectively
     do atom_a=1,natom
@@ -116,10 +116,10 @@
   !> momentum lmax, given the first-order rotation matrix, d1.
   subroutine mp_rot_form_d(lmax, d1, d2, d3, d4)
     integer, intent(in) :: lmax
-    real(chm_real), dimension(9), intent(in) :: d1
-    real(chm_real), dimension(25), intent(out) :: d2
-    real(chm_real), dimension(49), intent(out) :: d3
-    real(chm_real), dimension(81), intent(out) :: d4
+    real*8, dimension(9), intent(in) :: d1
+    real*8, dimension(25), intent(out) :: d2
+    real*8, dimension(49), intent(out) :: d3
+    real*8, dimension(81), intent(out) :: d4
     integer kk
     !
     if (lmax .lt. 2) return

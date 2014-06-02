@@ -1,9 +1,9 @@
   subroutine mp_dir_dot(lmax, r_inv)
     integer, intent(in) :: lmax
-    real(chm_real), intent(in) :: r_inv !1/R
+    real*8, intent(in) :: r_inv !1/R
     !
     integer :: i
-    real(chm_real) :: eax, eay, eaz, ebx, eby, fz
+    real*8 :: eax, eay, eaz, ebx, eby, fz
     !
     e_pair = qta(1)*vab(1)
     fz  = qta(1)*vabr(1)
@@ -50,10 +50,10 @@
   subroutine mp_dir_accumulate(atom_a, atom_b, e, f, q)
     !
     integer, intent(in) :: atom_a, atom_b
-    real(chm_real), intent(in out) :: e, f(3,*), q(3,*)
+    real*8, intent(in out) :: e, f(3,*), q(3,*)
     !
     integer :: xyz
-    real(chm_real) :: f_pair_lab(3), qa_pair_lab(3), qb_pair_lab(3), tempf, tempa, tempb
+    real*8 :: f_pair_lab(3), qa_pair_lab(3), qb_pair_lab(3), tempf, tempa, tempb
     ! rotate from QI to lab
     tempf = f_pair(1)
     tempa = qa_pair(1)
@@ -119,7 +119,7 @@
     !
     integer, intent(in) :: atom_a, atom_b, lmax
     !
-    real(chm_real) :: d1(9), d2(25), d3(49), d4(81), temp
+    real*8 :: d1(9), d2(25), d3(49), d4(81), temp
     integer :: i, j, ij, kk
     ! L = 0
     qta(1) = mp_lab_q(1, atom_a)
