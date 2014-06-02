@@ -114,8 +114,6 @@
 
   !> Forms the QI frame multipoles and torque intermediates.
   subroutine form_qi(atom_a, atom_b, lmax)
-    use mp_rot, only: mp_rot_form_d
-    use psf, only: mp_lab_q
     !
     integer, intent(in) :: atom_a, atom_b, lmax
     !

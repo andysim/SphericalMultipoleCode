@@ -1,4 +1,5 @@
   subroutine mp_rot_lab(natom)
+    !
     integer, intent(in) :: natom ! the number of real (non-image) atoms
     !
     integer :: atom_a, lmax
@@ -7,15 +8,14 @@
     real*8, dimension(49) :: d3
     real*8, dimension(81) :: d4
 
-    ! In our code, mp_lab_Q and mp_body_Q are (25*natom) matrices that cache the lab- and body-fixed multipoles, respectively
     do atom_a=1,natom
       lmax = 4  ! this should be compute for each pair, based on the force field and the l-dependent cutoffs
       if (lmax .lt. 0) cycle
       ! L = 0
+      ! In our code, mp_lab_Q and mp_body_Q are (25*natom) matrices that cache the lab- and body-fixed multipoles, respectively
       mp_lab_Q(1, atom_a) = mp_body_Q(1, atom_a)
       if (lmax .lt. 1) cycle
       ! L = 1
-      ! 
       ! remap from cartesian to spherical
       ! the mp_U matrix holds the local rotation array for each body-fixed multipole
       d1(5) = mp_U(1,atom_a)
@@ -52,11 +52,11 @@
       write(*,*) "====================================================================================================================================="
       write(*,*) "Performing rotation to the lab frame for atom", atom_a
       write(*,*) "Body-fixed multipoles:-"
-      write(*,'(A15(1F16.10))') "Charge:", mp_lab_Q(1, atom_a)
-      write(*,'(A15(3F16.10))') "Dipoles:", mp_lab_Q(2:4, atom_a)
-      write(*,'(A15(5F16.10))') "Quadrupoles:", mp_lab_Q(5:9, atom_a)
-      write(*,'(A15(7F16.10))') "Octopoles:", mp_lab_Q(10:16, atom_a)
-      write(*,'(A15(9F16.10))') "Hexadecapoles:", mp_lab_Q(17:25, atom_a)
+      write(*,'(A15(1F16.10))') "Charge:", mp_body_Q(1, atom_a)
+      write(*,'(A15(3F16.10))') "Dipoles:", mp_body_Q(2:4, atom_a)
+      write(*,'(A15(5F16.10))') "Quadrupoles:", mp_body_Q(5:9, atom_a)
+      write(*,'(A15(7F16.10))') "Octopoles:", mp_body_Q(10:16, atom_a)
+      write(*,'(A15(9F16.10))') "Hexadecapoles:", mp_body_Q(17:25, atom_a)
       write(*,*)
       write(*,*) "The local orientation matrix, U"
       write(*,'(3F16.10)') mp_U(1, atom_a), mp_U(4, atom_a), mp_U(7, atom_a)
@@ -100,20 +100,19 @@
       write(*,'(9F16.10)') d4(9), d4(18), d4(27), d4(36), d4(45), d4(54), d4(63), d4(72), d4(81)
       write(*,*)
       write(*,*)
-      write(*,*) "Body-fixed multipoles:-"
-      write(*,'(A15(1F16.10))') "Charge:", mp_body_Q(1, atom_a)
-      write(*,'(A15(3F16.10))') "Dipoles:", mp_body_Q(2:4, atom_a)
-      write(*,'(A15(5F16.10))') "Quadrupoles:", mp_body_Q(5:9, atom_a)
-      write(*,'(A15(7F16.10))') "Octopoles:", mp_body_Q(10:16, atom_a)
-      write(*,'(A15(9F16.10))') "Hexadecapoles:", mp_body_Q(17:25, atom_a)
+      write(*,*) "Lab-fixed multipoles:-"
+      write(*,'(A15(1F16.10))') "Charge:", mp_lab_Q(1, atom_a)
+      write(*,'(A15(3F16.10))') "Dipoles:", mp_lab_Q(2:4, atom_a)
+      write(*,'(A15(5F16.10))') "Quadrupoles:", mp_lab_Q(5:9, atom_a)
+      write(*,'(A15(7F16.10))') "Octopoles:", mp_lab_Q(10:16, atom_a)
+      write(*,'(A15(9F16.10))') "Hexadecapoles:", mp_lab_Q(17:25, atom_a)
       write(*,*) "====================================================================================================================================="
       write(*,*)
     enddo ! atom_a
     return
   end subroutine mp_rot_lab
 
-  !> This will build all spherical harmonic rotation matrices up to angular
-  !> momentum lmax, given the first-order rotation matrix, d1.
+
   subroutine mp_rot_form_d(lmax, d1, d2, d3, d4)
     integer, intent(in) :: lmax
     real*8, dimension(9), intent(in) :: d1
