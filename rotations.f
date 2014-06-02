@@ -60,14 +60,14 @@
       write(*,*)
       write(*,*) "The local orientation matrix, U"
       write(*,'(3F16.10)') mp_U(1, atom_a), mp_U(4, atom_a), mp_U(7, atom_a)
-      write(*,'(3F16.10)') mp_U(2, atom_a), mp_U(5, atom_a), mp_U(7, atom_a)
-      write(*,'(3F16.10)') mp_U(3, atom_a), mp_U(6, atom_a), mp_U(7, atom_a)
+      write(*,'(3F16.10)') mp_U(2, atom_a), mp_U(5, atom_a), mp_U(8, atom_a)
+      write(*,'(3F16.10)') mp_U(3, atom_a), mp_U(6, atom_a), mp_U(9, atom_a)
       write(*,*)
       write(*,*)
       write(*,*) "The D1 rotation matrix for dipoles (U, reordered for spherical harmonics)"
       write(*,'(3F16.10)') d1(1), d1(4), d1(7)
-      write(*,'(3F16.10)') d1(2), d1(5), d1(7)
-      write(*,'(3F16.10)') d1(3), d1(6), d1(7)
+      write(*,'(3F16.10)') d1(2), d1(5), d1(8)
+      write(*,'(3F16.10)') d1(3), d1(6), d1(9)
       write(*,*)
       write(*,*)
       write(*,*) "The D2 rotation matrix for quadrupoles"

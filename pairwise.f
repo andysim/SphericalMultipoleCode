@@ -647,14 +647,14 @@
     write(*,*)
     write(*,*) "The Uab orientation matrix"
     write(*,'(3F16.10)') Uz(1), Uz(4), Uz(7)
-    write(*,'(3F16.10)') Uz(2), Uz(5), Uz(7)
-    write(*,'(3F16.10)') Uz(3), Uz(6), Uz(7)
+    write(*,'(3F16.10)') Uz(2), Uz(5), Uz(8)
+    write(*,'(3F16.10)') Uz(3), Uz(6), Uz(9)
     write(*,*)
     write(*,*)
     write(*,*) "The D1 rotation matrix for dipoles (Uab transpose, reordered for spherical harmonics)"
     write(*,'(3F16.10)') d1(1), d1(4), d1(7)
-    write(*,'(3F16.10)') d1(2), d1(5), d1(7)
-    write(*,'(3F16.10)') d1(3), d1(6), d1(7)
+    write(*,'(3F16.10)') d1(2), d1(5), d1(8)
+    write(*,'(3F16.10)') d1(3), d1(6), d1(9)
     write(*,*)
     write(*,*)
     write(*,*) "The D2 rotation matrix for quadrupoles"
