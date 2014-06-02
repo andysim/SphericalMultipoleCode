@@ -56,3 +56,22 @@ Miscellaneous Parameters
  - Build the F vector from those intermediates, and rotate back to the lab frame, using the _Uab_ matrix.
  - Accumulate the torque on centers _a_ and _b_.
  - After the pair loop, map the torque on each atom back to forces on that atom and its anchors.
+ 
+
+### Multipole Ordering
+
+We order multipoles and related quantities in the order 0, 1c, 1s, 2c, 2s, ...
+
+For dipoles, this translates to z, x, y.  Therefore we need to reorder some of the rotation matrices: the following snippet will achieve this:
+
+    d1(5) = Uz(1)
+    d1(8) = Uz(2)
+    d1(2) = Uz(3)
+    d1(6) = Uz(4)
+    d1(9) = Uz(5)
+    d1(3) = Uz(6)
+    d1(4) = Uz(7)
+    d1(7) = Uz(8)
+    d1(1) = Uz(9)
+
+where d1 is a rotation matrix for spherical harmonic quantities (0, 1c, 1s) and Uz is for standard Cartesian quantities (x, y, z).
